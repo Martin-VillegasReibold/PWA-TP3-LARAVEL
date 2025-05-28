@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Blog | Posts</title>
-</head>
-<body>
+@section('title')
+    My Blog Posts
+@endsection
+
+<x-layout>
     <h1>Pagina index</h1>
-</body>
-</html>
+    <a href="/laravel/myblog/my-blog/public/category/create">Crear nuevo Post</a>
+    <ul>
+        @foreach ($posts as $post)
+            <li>
+                <a href="/laravel/myblog/my-blog/public/category/show/{{ $post->id }}">{{ $post->title }}</a>
+
+            </li>
+        @endforeach
+    </ul>
+
+</x-layout>

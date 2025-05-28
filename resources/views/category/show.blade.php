@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+@section('title')
+    My Blog Detalles
+@endsection
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Blog | Show</title>
-</head>
+<x-layout>
+    <a href="/laravel/myblog/my-blog/public/category">Volver a la pagina anterior</a>
+    <h1>Pagina detalles</h1>
+    <h2>Titulo: {{ $post->title }}</h2>
+    <p>
+        <b>Categoria: </b> {{ $post->category }}
+    </p>
+    <p>
+        {{ $post->content }}
+    </p>
 
-<body>
-    <h1>Mostrar Post {{ $id }}</h1>
+    <a href="/laravel/myblog/my-blog/public/category/{{ $post->id }}/edit">Editar Post</a>
 
-    @if (true)
-        <p>hola</p>
-    @endif
-</body>
+    <form action="/laravel/myblog/my-blog/public/category/{{ $post->id }}" method="POST">
 
-</html>
+        @csrf
+
+        @method('DELETE')
+
+        <button type="submit">
+            Eliminar Post
+        </button>
+    </form>
+
+</x-layout>

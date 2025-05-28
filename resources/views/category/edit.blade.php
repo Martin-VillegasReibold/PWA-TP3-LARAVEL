@@ -1,15 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+@section('title')
+    My Blog Edit
+@endsection
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Blog | Edit</title>
-</head>
+<x-layout>
+    <h1>Formulario para Editar un nuevo post</h1>
+    <form action="/laravel/myblog/my-blog/public/category/{{$post->id}}" method="POST">
 
-<body>
-    <h1>Editar Posts {{ $id }}</h1>
-</body>
+        @csrf
 
-</html>
+        @method('PUT')
+
+        <label>
+            Titulo:
+            <input type="text" name="title" value="{{$post->title}}">
+        </label>
+        <br>
+        <br>
+        <label>
+            Publicado por:
+            <input type="text" name="poster" value="{{$post->poster}}">
+        </label>
+        <br>
+        <br>
+        <label>
+            Categoria:
+            <input type="text" name="category" value="{{$post->category}}">
+        </label>
+        <br>
+        <br>
+        <label>
+            Contenido:
+            <textarea name="content">{{$post->content}}</textarea>
+        </label>
+        <br>
+        <br>
+        <button type="submit">
+            Editar Post
+        </button>
+
+    </form>
+
+</x-layout>
