@@ -4,7 +4,7 @@
 
 <x-layout>
     <h1>Pagina index</h1>
-    <a href="/laravel/myblog/my-blog/public/category/create">Crear nuevo Post</a>
+    <a href="/laravel/myblog/my-blog/public/category/show/create">Crear nuevo Post</a>
     <ul>
         @foreach ($posts as $post)
             <li>
@@ -13,5 +13,7 @@
             </li>
         @endforeach
     </ul>
+
+    {{ $posts->links() }}
 
 </x-layout>

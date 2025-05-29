@@ -21,16 +21,17 @@ Route::get('/logout', function () {
     return "Logout usuario";
 });
 
-Route::get('/category', [CategoryController::class, 'getIndex']);
 
-Route::get('/category/show/{id}', [CategoryController::class, 'getShow']);
+Route::get('category/show', [CategoryController::class, 'getIndex']);
 
-Route::get('/category/create', [CategoryController::class, 'getCreate']);
+Route::get('category/show/create', [CategoryController::class, 'getCreate']);
 
-Route::post('/category', [CategoryController::class, 'store']);
+Route::get('category/show/{id}', [CategoryController::class, 'getShow']);
 
-Route::get('/category/{id}/edit', [CategoryController::class, 'getEdit']);
+Route::post('category/show', [CategoryController::class, 'store']);
 
-Route::put('/category/{id}', [CategoryController::class, 'update']);
+Route::get('category/show/{id}/edit', [CategoryController::class, 'getEdit']);
 
-Route::delete('/category/{id}',[CategoryController::class, 'destroy']);
+Route::put('category/show/{id}', [CategoryController::class, 'update']);
+
+Route::delete('category/show/{id}', [CategoryController::class, 'destroy']);

@@ -4,7 +4,7 @@
 
 <x-layout>
     <h1>Formulario para crear un nuevo post</h1>
-    <form action="/laravel/myblog/my-blog/public/category" method="POST">
+    <form action="/laravel/myblog/my-blog/public/category/show" method="POST">
 
         @csrf
 

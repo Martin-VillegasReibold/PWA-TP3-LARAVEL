@@ -4,7 +4,7 @@
 
 <x-layout>
     <h1>Formulario para Editar un nuevo post</h1>
-    <form action="/laravel/myblog/my-blog/public/category/{{$post->id}}" method="POST">
+    <form action="/laravel/myblog/my-blog/public/category/show/{{$post->id}}" method="POST">
 
         @csrf
 

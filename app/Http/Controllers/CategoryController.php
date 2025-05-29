@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
+    
     public function getIndex()
     {
-        $posts = Post::orderBy("id", "desc")->get();
+        $posts = Post::orderBy("id", "desc")->paginate(10);
         return view('category.index', compact('posts'));
     }
     public function getShow($id)
@@ -38,7 +39,7 @@ class CategoryController extends Controller
 
         $post->save();
 
-        return redirect("/category");
+        return redirect("/category/show");
     }
 
     public function getEdit($id)
@@ -67,6 +68,6 @@ class CategoryController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect("/category");
+        return redirect("/category/show");
     }
 }
