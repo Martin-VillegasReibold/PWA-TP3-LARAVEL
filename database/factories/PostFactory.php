@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(),
             'poster' => $this->faker->name(),
             'content' => $this->faker->text(1000),
-            'category' => $this->faker->randomElement(['a','b','c','d','e']),
+            'category_id'=> $this->faker->numberBetween(1, 5),
             'published_at' => $this->faker->dateTime(),
         ];
     }

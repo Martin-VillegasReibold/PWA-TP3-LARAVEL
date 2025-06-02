@@ -4,11 +4,11 @@
 
 <x-layout>
     <h1>Pagina index</h1>
-    <a href="/laravel/myblog/my-blog/public/category/show/create">Crear nuevo Post</a>
+    <a href="{{ route('category.getCat') }}">Volver a la pagina anterior</a>
     <ul>
         @foreach ($posts as $post)
             <li>
-                <a href="/laravel/myblog/my-blog/public/category/show/{{ $post->id }}">{{ $post->title }}</a>
+                <a href="{{ route('show.getShow', $post->id) }}">{{ $post->title }}</a>
 
             </li>
         @endforeach

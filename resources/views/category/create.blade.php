@@ -4,7 +4,7 @@
 
 <x-layout>
     <h1>Formulario para crear un nuevo post</h1>
-    <form action="/laravel/myblog/my-blog/public/category/show" method="POST">
+    <form action="{{ route('show.store') }}" method="POST">
 
         @csrf
 
@@ -22,7 +22,13 @@
         <br>
         <label>
             Categoria:
-            <input type="text" name="category">
+            <select name="category_id" id="categories">
+                <option selected disabled>Selecciona una opción</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+
+            </select>
         </label>
         <br>
         <br>

@@ -11,6 +11,10 @@ class Post extends Model
     use HasFactory;
     protected $table = "posts";
 
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
     /*     protected function title(): Attribute
     {
         return Attribute::make(

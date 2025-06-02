@@ -3,19 +3,19 @@
 @endsection
 
 <x-layout>
-    <a href="/laravel/myblog/my-blog/public/category/show">Volver a la pagina anterior</a>
+    <a href="{{ route('category.getCat') }}">Volver a categorias</a>
     <h1>Pagina detalles</h1>
     <h2>Titulo: {{ $post->title }}</h2>
     <p>
-        <b>Categoria: </b> {{ $post->category }}
+        <b>Categoria: </b> {{ $post->category_id }}
     </p>
     <p>
         {{ $post->content }}
     </p>
 
-    <a href="/laravel/myblog/my-blog/public/category/show/{{ $post->id }}/edit">Editar Post</a>
+    <a href="{{ route('show.getEdit', $post->id) }}">Editar Post</a>
 
-    <form action="/laravel/myblog/my-blog/public/category/show/{{ $post->id }}" method="POST">
+    <form action="{{ route('show.destroy', $post->id) }}" method="POST">
 
         @csrf
 
