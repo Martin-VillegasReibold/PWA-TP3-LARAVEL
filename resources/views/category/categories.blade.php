@@ -11,7 +11,7 @@
         </li>
         @foreach ($categories as $category)
             <li>
-                <a href="{{ route('show.getIndex', ['category' => $category]) }}">{{ $category->name }}</a>
+                <a href="{{ route('show.getIndex', ['category' => $category->name]) }}">{{ $category->name }}</a>
             </li>
         @endforeach
     </ul>

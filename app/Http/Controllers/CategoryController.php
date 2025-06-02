@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
 
         if ($request->category) {
-            $posts = Category::where('id', $request->category)->firstOrFail()->posts()->orderBy("id", "desc")->paginate(10);
+            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->orderBy("id", "desc")->paginate(10)->withQueryString();
         } else {
             $posts = Post::orderBy("id", "desc")->paginate(10);
         }
