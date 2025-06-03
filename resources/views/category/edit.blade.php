@@ -16,10 +16,10 @@
         </label>
         <br>
         <br>
-        <label>
+    {{--     <label>
             Publicado por:
             <input type="text" name="poster" value="{{ $post->poster }}">
-        </label>
+        </label> --}}
         <br>
         <br>
         <label>

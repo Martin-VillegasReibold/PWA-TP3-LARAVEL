@@ -7,23 +7,32 @@
     <h1>Pagina detalles</h1>
     <h2>Titulo: {{ $post->title }}</h2>
     <p>
-        <b>Categoria: </b> {{ $post->category_id }}
+        <b>Usuario: </b> {{ $post->user->name }}
     </p>
     <p>
         {{ $post->content }}
     </p>
+    <p>
+        <b>Publicado: </b> {{ $post->created_at }} {{-- ->diffForHumans() --}}
+    </p>
 
-    <a href="{{ route('show.getEdit', $post->id) }}">Editar Post</a>
+    @auth
 
-    <form action="{{ route('show.destroy', $post->id) }}" method="POST">
+        @if (auth()->user()->id === $post->user_id)
+            <a href="{{ route('show.getEdit', $post->id) }}">Editar Post</a>
 
-        @csrf
+            <form action="{{ route('show.destroy', $post->id) }}" method="POST">
 
-        @method('DELETE')
+                @csrf
 
-        <button type="submit">
-            Eliminar Post
-        </button>
-    </form>
+                @method('DELETE')
+
+                <button type="submit">
+                    Eliminar Post
+                </button>
+            </form>
+        @endif
+
+    @endauth
 
 </x-layout>

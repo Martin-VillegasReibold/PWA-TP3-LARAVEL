@@ -11,7 +11,6 @@
     @stack('css')
 
 
-
 </head>
 
 <body>

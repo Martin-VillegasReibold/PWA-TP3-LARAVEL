@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
@@ -49,7 +50,7 @@ class CategoryController extends Controller
         $post = new Post();
 
         $post->title = $request->title;
-        $post->poster = $request->poster;
+        $post->user_id = Auth::user()->id;
         $post->category_id = $request->category_id;
         $post->content = $request->content;
 
@@ -72,7 +73,6 @@ class CategoryController extends Controller
         $post = Post::find($id);
 
         $post->title = $request->title;
-        $post->poster = $request->poster;
         $post->category_id = $request->category_id;
         $post->content = $request->content;
 

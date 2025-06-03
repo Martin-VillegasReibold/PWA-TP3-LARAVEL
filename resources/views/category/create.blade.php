@@ -14,10 +14,10 @@
         </label>
         <br>
         <br>
-        <label>
+ {{--        <label>
             Publicado por:
             <input type="text" name="poster">
-        </label>
+        </label> --}}
         <br>
         <br>
         <label>

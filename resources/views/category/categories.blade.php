@@ -4,7 +4,9 @@
 
 <x-layout>
     <h1>Categorias:</h1>
-    <a href="{{ route('category.getCreate') }}">Crear nuevo Post</a>
+    @auth
+        <a href="{{ route('category.getCreate') }}">Crear nuevo Post</a>
+    @endauth
     <ul>
         <li>
             <a href="{{ route('show.getIndex') }}">Todo</a>

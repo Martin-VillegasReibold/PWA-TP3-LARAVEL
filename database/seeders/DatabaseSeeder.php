@@ -40,6 +40,6 @@ class DatabaseSeeder extends Seeder
         $category->name = "e";
         $category->save();
 
-         Post::factory(100)->create();
+        Post::factory(100)->create();
     }
 }
