@@ -14,12 +14,19 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $user = new User();
-        $user->name = "Martin";
-        $user->email = "martin@gmail.com";
-        $user->password = bcrypt('12345');
+        $user->name = "Esteban";
+        $user->email = "esteban@gmail.com";
+        $user->password = bcrypt('12345678');
 
         $user->save();
 
-        User::factory(2)->create();
+        $user = new User();
+        $user->name = "Martin";
+        $user->email = "martin@gmail.com";
+        $user->password = bcrypt('12345678');
+
+        $user->save();
+
+        User::factory(8)->create();
     }
 }

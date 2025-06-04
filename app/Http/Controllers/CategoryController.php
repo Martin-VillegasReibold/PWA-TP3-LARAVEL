@@ -21,9 +21,9 @@ class CategoryController extends Controller
     {
 
         if ($request->category) {
-            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->orderBy("id", "desc")->paginate(10)->withQueryString();
+            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->orderBy("id", "desc")->paginate(6)->withQueryString();
         } else {
-            $posts = Post::orderBy("id", "desc")->paginate(10);
+            $posts = Post::orderBy("id", "desc")->paginate(6);
         }
 
         /*  $posts = Category::find($request->category)->posts;*/
