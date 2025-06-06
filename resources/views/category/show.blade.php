@@ -5,7 +5,10 @@
 <x-layout>
 
     <section>
+
+        
         <div class="container flex flex-col items-center px-4 py-12 mx-auto text-center">
+            
 
             <h2
                 class="max-w-2xl mx-auto text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">
@@ -17,14 +20,9 @@
                 Post by {{ $post->user->name }} | {{ $post->created_at }}
             </label>
 
-            <p class="max-w-4xl mt-6 text-justify leading-relaxed indent-8 text-gray-500 dark:text-gray-300 whitespace-pre-wrap">
-                {{ $post->content }}
-            </p>
-
             @auth
-
                 @if (auth()->user()->id === $post->user_id)
-                    <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+                    <div class="grid grid-cols-1 gap-8 mt-1 md:mt-5 md:grid-cols-2">
 
                         <div class="inline-flex w-full mt-6 sm:w-auto">
                             <a href="{{ route('show.getEdit', $post->id) }}"
@@ -48,6 +46,12 @@
                     </div>
                 @endif
             @endauth
+
+            <p class="max-w-4xl mt-6 text-justify leading-relaxed indent-8 text-gray-500 dark:text-gray-300 whitespace-pre-wrap">
+                {{ $post->content }}
+            </p>
+
+            
         </div>
     </section>
 </x-layout>

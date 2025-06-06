@@ -17,7 +17,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => ucfirst($this->faker->words(rand(5, 10), true)),
             'user_id' => $this->faker->numberBetween(1, 10),
             'content' => $this->faker->paragraphs(10, true),
             'category_id' => $this->faker->numberBetween(1, 5),
