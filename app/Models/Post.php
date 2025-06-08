@@ -19,25 +19,4 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    /*     protected function title(): Attribute
-    {
-        return Attribute::make(
-        //mutador
-            set: function ($value) {
-
-                return strtolower($value);
-            },
-        //accesor
-            get: function($value){
-            return ucfirst($value);
-            }
-        );
-    } */
-
-    /* protected function casts(): array
-    {
-        return [
-            "published_at" => 'datetime'
-        ];
-    } */
 }

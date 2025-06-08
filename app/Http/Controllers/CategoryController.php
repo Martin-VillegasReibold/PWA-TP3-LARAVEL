@@ -21,7 +21,12 @@ class CategoryController extends Controller
     {
 
         if ($request->category) {
-            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->orderBy("id", "desc")->paginate(6)->withQueryString();
+            $posts = Category::where('name', $request->category)
+            ->firstOrFail()
+            ->posts()
+            ->orderBy("id", "desc")
+            ->paginate(6)
+            ->withQueryString();
         } else {
             $posts = Post::orderBy("id", "desc")->paginate(6);
         }
@@ -79,6 +84,16 @@ class CategoryController extends Controller
         $post->save();
 
         return redirect()->route('show.getShow', $post->id);
+    }
+
+    public function checkUpdate(Request $request, $id){
+         $post = Post::findOrFail($id);
+
+        $post->habilitated = $request->has('habilitated') ? 1 : 0;
+
+        $post->save();
+
+        return redirect()->route('category.getCat');
     }
 
     public function destroy($id)
